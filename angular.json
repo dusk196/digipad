@@ -45,10 +45,7 @@
             "polyfills": "projects/digipad/src/polyfills.ts",
             "tsConfig": "projects/digipad/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "projects/digipad/src/favicon.ico",
-              "projects/digipad/src/assets"
-            ],
+            "assets": [],
             "styles": [],
             "scripts": []
           },
@@ -118,9 +115,21 @@
             "styles": [],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/digipad/**/*.ts",
+              "projects/digipad/**/*.html"
+            ]
+          }
         }
       }
     }
   },
-  "defaultProject": "digipad"
+  "defaultProject": "digipad",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }
