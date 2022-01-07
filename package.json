@@ -14,7 +14,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:elements": "ng build && node concatenate.js",
+    "build:digipad": "ng build && node builder.js",
+    "build:digipad-nozone": "ng build --polyfills=\"\" && node builder-nozone.js",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint"
