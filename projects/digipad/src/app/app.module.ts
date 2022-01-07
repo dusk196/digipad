@@ -2,6 +2,8 @@ import { DoBootstrap, Injector, NgModule } from '@angular/core';
 import { createCustomElement } from '@angular/elements';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 import { EditorComponent } from './editor/editor.component';
 
 @NgModule({
@@ -9,7 +11,8 @@ import { EditorComponent } from './editor/editor.component';
     EditorComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [EditorComponent]
@@ -21,5 +24,8 @@ export class AppModule implements DoBootstrap {
     customElements.define('digipad-editor', webComponent);
   }
 
-  ngDoBootstrap() { }
+  ngDoBootstrap() {
+    console.info("Digipad initiated successfully as a web component ;)");
+  }
+
 }
