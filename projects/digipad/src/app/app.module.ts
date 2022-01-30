@@ -1,4 +1,4 @@
-import { DoBootstrap, Injector, NgModule } from '@angular/core';
+import { Injector, NgModule } from '@angular/core';
 import { createCustomElement } from '@angular/elements';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -17,15 +17,12 @@ import { EditorComponent } from './editor/editor.component';
   providers: [],
   bootstrap: [EditorComponent]
 })
-export class AppModule implements DoBootstrap {
+
+export class AppModule {
 
   constructor(private injector: Injector) {
     const webComponent = createCustomElement(EditorComponent, { injector });
-    customElements.define('digipad-editor', webComponent);
-  }
-
-  ngDoBootstrap() {
-    console.info("Digipad initiated successfully as a web component ;)");
+    customElements.define('app-digipad', webComponent);
   }
 
 }
