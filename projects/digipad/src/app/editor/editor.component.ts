@@ -41,10 +41,6 @@ export class EditorComponent {
     }
   }
 
-  onSelect($event: Event) {
-    // console.log($event)
-  }
-
   onBold(): void {
     const selection = this._editorService.getSelection()?.getRangeAt(0);
     console.log(selection);
