@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { faBold, faItalic, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { EditorService } from './editor.service';
+import { EditorUtilsService } from './common/editor-utils.service';
+import { EditorActionsService } from './common/editor-actions.service';
 
 export interface ExecCommandStyle {
   style: 'color' | 'background-color' | 'font-size' | 'font-weight' | 'font-style' | 'text-decoration';
@@ -17,27 +19,36 @@ export interface ExecCommandStyle {
 
 export class EditorComponent {
 
-  constructor(private _editorService: EditorService) { }
+  constructor(
+    private _editorService: EditorService,
+    private _editorUtils: EditorUtilsService,
+    private _editorActions: EditorActionsService
+  ) { }
 
   faBold: IconDefinition = faBold;
   faItalic: IconDefinition = faItalic
-  text = [
-    {
-      text: '<p>Hello World</p>'
-    }
-  ];
 
+  /**
+   * 
+   * @param action Editor actions that to be executed. E.g: 'bold', 'italic', 'underline', 'strikeThrough'
+   */
   onEditorAction(action: string) {
-    switch (action) {
-      case 'highlight':
-        if (this._editorService.isSameElement())
-          this._editorService.getSelection()?.getRangeAt(0).commonAncestorContainer.childNodes.forEach(element => {
-            console.log(element);
-          });
-        break;
-
-      default:
-        break;
+    console.log(action);
+    const actionExists = this._editorActions.checkIfActionExists(action);
+    if (!actionExists) {
+      switch (action) {
+        case 'bold':
+          this._editorActions.executeAction('strong');
+          break;
+        case 'highlight':
+          if (this._editorUtils.isSameElement())
+            this._editorService.getSelection()?.getRangeAt(0).commonAncestorContainer.childNodes.forEach(element => {
+              console.log(element);
+            });
+          break;
+        default:
+          break;
+      }
     }
   }
 
@@ -93,20 +104,6 @@ export class EditorComponent {
       newElement.append(oldConent);
       range.deleteContents();
       range.insertNode(newElement);
-    }
-  }
-
-  applyTagChanges(tag: string): void {
-    console.log(this._editorService.isSameElement());
-    if (this._editorService.isSameElement()) {
-      const selection = this._editorService.getSelection()?.getRangeAt(0);
-      console.log(selection);
-      const selectedContent = selection?.extractContents();
-      const span = document.createElement('strong');
-      span.style.fontWeight = 'bold';
-      if (selectedContent) span.appendChild(selectedContent);
-      if (selection) selection.deleteContents();
-      selection?.insertNode(span);
     }
   }
 
