@@ -47,9 +47,9 @@ export default [
     ],
     plugins: [
       pluginTypescript(),
-      pluginCommonjs({
-        extensions: ['.js', '.ts'],
-      }),
+      // pluginCommonjs({
+      //   extensions: ['.js', '.ts'],
+      // }),
       babel({
         babelHelpers: 'bundled',
         configFile: resolve(__dirname, '.babelrc.js'),

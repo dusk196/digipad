@@ -2,6 +2,7 @@
   "name": "digipad",
   "version": "1.0.0",
   "description": "A WYSIWYG Rich Text Editor without execCommand() Method; that too as a web component!",
+  "author": "Sayantan Roy <sayantan.roy@gmail.com>",
   "contributors": [
     "Sayantan Roy <sayantan.roy@gmail.com>"
   ],
@@ -14,7 +15,6 @@
   "keywords": [
     "editor"
   ],
-  "author": "Sayantan Roy <sayantan.roy@gmail.com>",
   "main": "src/app.ts",
   "scripts": {
     "test": "later",
