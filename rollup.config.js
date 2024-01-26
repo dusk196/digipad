@@ -1,11 +1,16 @@
 import { babel } from '@rollup/plugin-babel';
-import terser  from '@rollup/plugin-terser';
+import terser from '@rollup/plugin-terser';
 import pluginTypescript from '@rollup/plugin-typescript';
 import pluginCommonjs from '@rollup/plugin-commonjs';
 import pluginNodeResolve from '@rollup/plugin-node-resolve';
 import copy from 'rollup-plugin-copy'
-import pkg from './package.json';
+import pkg from './package.json' assert { type: 'json' };
 import * as path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname, resolve } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const moduleName = pkg.name.replace(/^@.*\//, '');
 const inputFileName = 'src/app.ts';
@@ -30,6 +35,7 @@ export default [
         name: moduleName,
         file: 'dist/public/digipad.js',
         format: 'iife',
+        watch: true,
         sourcemap: true,
         banner,
       },
@@ -37,6 +43,7 @@ export default [
         name: moduleName,
         file: 'dist/public/digipad.js'.replace('.js', '.min.js'),
         format: 'iife',
+        watch: false,
         sourcemap: false,
         banner,
         plugins: [terser()],
@@ -49,7 +56,7 @@ export default [
       }),
       babel({
         babelHelpers: 'bundled',
-        configFile: path.resolve(__dirname, '.babelrc.js'),
+        configFile: resolve(__dirname, '.babelrc.js'),
       }),
       pluginNodeResolve({
         browser: true,
@@ -93,7 +100,7 @@ export default [
   //     }),
   //     babel({
   //       babelHelpers: 'bundled',
-  //       configFile: path.resolve(__dirname, '.babelrc.js'),
+  //       configFile: resolve(__dirname, '.babelrc.js'),
   //     }),
   //     pluginNodeResolve({
   //       browser: false,
@@ -125,7 +132,7 @@ export default [
   //     }),
   //     babel({
   //       babelHelpers: 'bundled',
-  //       configFile: path.resolve(__dirname, '.babelrc.js'),
+  //       configFile: resolve(__dirname, '.babelrc.js'),
   //     }),
   //     pluginNodeResolve({
   //       browser: false,

@@ -1,1 +1,1 @@
-export { add, substract } from './math'
+export { add, substract, getRandomID } from './math'
