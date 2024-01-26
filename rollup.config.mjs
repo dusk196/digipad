@@ -4,7 +4,7 @@ import pluginTypescript from '@rollup/plugin-typescript';
 import pluginCommonjs from '@rollup/plugin-commonjs';
 import pluginNodeResolve from '@rollup/plugin-node-resolve';
 import copy from 'rollup-plugin-copy'
-import pkg from './package.json' assert { type: 'json' };
+import pkg from './pkg.cjs';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname, resolve } from 'path';
@@ -35,7 +35,6 @@ export default [
         name: moduleName,
         file: 'dist/public/digipad.js',
         format: 'iife',
-        watch: true,
         sourcemap: true,
         banner,
       },
@@ -43,7 +42,6 @@ export default [
         name: moduleName,
         file: 'dist/public/digipad.js'.replace('.js', '.min.js'),
         format: 'iife',
-        watch: false,
         sourcemap: false,
         banner,
         plugins: [terser()],
