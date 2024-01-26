@@ -4,14 +4,12 @@ import pluginTypescript from '@rollup/plugin-typescript';
 import pluginCommonjs from '@rollup/plugin-commonjs';
 import pluginNodeResolve from '@rollup/plugin-node-resolve';
 import copy from 'rollup-plugin-copy'
-import pkg from './pkg.cjs';
-import * as path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname, resolve } from 'path';
+import pkg from './pkg.cjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-
 const moduleName = pkg.name.replace(/^@.*\//, '');
 const inputFileName = 'src/app.ts';
 const author = pkg.author;
