@@ -8,13 +8,13 @@ import { v4 as uuidv4 } from 'uuid'
 //   .subscribe((count) => { console.log(`Clicked ${count} times`) })
 
 export function add (x: number, y: number): number {
-  // const a = cloneDeep(x)
-  // console.log('Cloned', a)
-  return x + y
+    // const a = cloneDeep(x)
+    // console.log('Cloned', a)
+    return x + y
 }
 
 export function substract (x: number, y: number): number {
-  return x - y
+    return x - y
 }
 
 // like lodash and all
@@ -30,5 +30,5 @@ export function substract (x: number, y: number): number {
 // }
 
 export function getRandomID (): string {
-  return uuidv4()
+    return uuidv4()
 }

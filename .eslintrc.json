@@ -15,7 +15,13 @@
         "sourceType": "module"
     },
     "plugins": [
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "@stylistic/ts"
     ],
-    "rules": {}
+    "rules": {
+        "@typescript-eslint/indent": [
+            "error",
+            4
+        ]
+    }
 }
