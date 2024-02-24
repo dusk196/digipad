@@ -14,7 +14,7 @@ Using this editor is pretty simple!
 
 | Attribute | Example | Description | Default value |
 |-|-|-|-|
-| id (string) | `<digipad id="editor1"></digipad>` | Unique ID that will be used to identify the editor instance. | Randomly generated UUIDs if not provided or provided values are not unique in case of multiple instances.
+| id (string) | `<digipad id="editor1"></digipad>` | Unique ID that will be used to identify the editor instance. | Randomly generated UUIDs if not provided or provided values are not unique in case of multiple instances. |
 | readonly (boolean) | `<digipad readonly=true></digipad>` | Row 2, Col 3 | false |
 | disabled (boolean) | `<digipad disabled=true></digipad>` | Row 3, Col 3 | false |
 
