@@ -17,7 +17,6 @@
   ],
   "main": "src/app.ts",
   "scripts": {
-    "test": "later",
     "build": "rimraf dist && eslint --fix src/**/*.ts && rollup -c",
     "watch": "rimraf dist && eslint --fix src/**/*.ts && rollup -c --watch",
     "lint": "eslint --fix 'src/**/*.ts'"
