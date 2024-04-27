@@ -2,7 +2,7 @@ import { babel } from '@rollup/plugin-babel';
 import terser from '@rollup/plugin-terser';
 import pluginTypescript from '@rollup/plugin-typescript';
 import pluginNodeResolve from '@rollup/plugin-node-resolve';
-import copy from 'rollup-plugin-copy'
+import copy from 'rollup-plugin-copy';
 import { fileURLToPath } from 'url';
 import { dirname, resolve } from 'path';
 // import pluginCommonjs from '@rollup/plugin-commonjs';
